@@ -18,43 +18,44 @@ public class ArrayOperation {
 		System.out.println();
 		System.out.println("*****************************");
 
-//		int[] arr=createArray();
+		int[] arr=createArray();
 
-//		printArray(createArray());
+		printArray(createArray());
 
-//		int[] newArr=reverseArray();
-//		printArray(newArr);
+		int[] newArr=reverseArray();
+		printArray(newArr);
 
-//		int[] ascArr=ascSort(createArray());
-//		printArray(ascArr);
+		int[] ascArr=ascSort(createArray());
+		printArray(ascArr);
 
-//		int[] descArr=descSort(createArray());
-//		printArray(descArr);
+		int[] descArr=descSort(createArray());
+		printArray(descArr);
 
-//		int[] merArr = mergeArray(createArray(),createArray());
-//		printArray(merArr);
+		int[] merArr = mergeArray(createArray(),createArray());
+		printArray(merArr);
 
-//		int[] ziagArr=zigZagArray(createArray(),createArray());
-//		printArray(ziagArr);
+		int[] ziagArr=zigZagArray(createArray(),createArray());
+		printArray(ziagArr);
 		
-//		System.out.println("Maximum Element is: "+maxElement(createArray()));
+		System.out.println("Maximum Element is: "+maxElement(createArray()));
 		
-//		System.out.println("Minimum Element is: "+minElement(createArray()));
+		System.out.println("Minimum Element is: "+minElement(createArray()));
 		
-//		int[] uniArr=unionArray(createArray(),createArray());
-//		printArray(uniArr);
+		int[] uniArr=unionArray(createArray(),createArray());
+		printArray(uniArr);
 
-//		int[] interArr=intersectionArray(createArray(),createArray());
-//		printArray(interArr);
+		int[] interArr=intersectionArray(createArray(),createArray());
+		printArray(interArr);
 		
-//		int[] remDupli=removeDuplicates(createArray());
-//		printArray(remDupli);
+		int[] remDupli=printDuplicates(createArray());
+		printArray(remDupli);
 		
 		int countPrime=countPrimeNum(createArray());
 		System.out.println("Count of Prime Numbers: "+countPrime);
 
 	}
-
+//Creating Array
+	
 	static int[] createArray() {
 		System.out.println("Enter the size of an array");
 		int size = sc.nextInt();
@@ -66,6 +67,7 @@ public class ArrayOperation {
 		return arr;
 	}
 
+//	Print Array
 	static void printArray(int[] arr) {
 		System.out.println("Printing an Array");
 		for (int i = 0; i < arr.length; i++) {
@@ -74,6 +76,7 @@ public class ArrayOperation {
 		System.out.println();
 	}
 
+//	Reverse Array
 	static int[] reverseArray() {
 		int[] arr = createArray();
 		int[] newArr = new int[arr.length];
@@ -83,7 +86,8 @@ public class ArrayOperation {
 		}
 		return newArr;
 	}
-
+	
+//Ascending Order
 	static int[] ascSort(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length - 1 - i; j++) {
@@ -99,6 +103,7 @@ public class ArrayOperation {
 
 	}
 
+//	descending Order
 	static int[] descSort(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length - 1 - i; j++) {
@@ -114,6 +119,7 @@ public class ArrayOperation {
 
 	}
 
+//	Merge Array
 	static int[] mergeArray(int[] arr1,int[] arr2) {
 		int[] arr3 = new int[(arr1.length + arr2.length)];
 		for (int i = 0; i < arr1.length; i++) {
@@ -126,6 +132,7 @@ public class ArrayOperation {
 		return arr3;
 	}
 
+//	ZigZag Array
 	static int[] zigZagArray(int[] arr1,int[] arr2) {
 		int[] arr3 = new int[(arr1.length + arr2.length)];
 		int j=0;
@@ -141,16 +148,19 @@ public class ArrayOperation {
 		return arr3;
 	}
 	
+//	MaxElement
 	static int maxElement(int[] arr) {
 		int[] arr1=ascSort(arr);
 		return arr1[arr1.length-1];
 	}
 	
+//	MinElememnt
 	static int minElement(int[] arr) {
 		int[] arr1=ascSort(arr);
 		return arr1[0];
 	}
 	
+//	Union Array
 	static int[] unionArray(int[] arr1,int[] arr2) {
 		int[] arr3=new int[arr1.length+arr2.length];
 //		int k=arr1.length;
@@ -198,6 +208,8 @@ public class ArrayOperation {
 		}
 		return ascSort(uArr);
 	}
+	
+//	Intersection Array
 
 	static int[] intersectionArray(int[] arr1,int[] arr2) {
 		int k=0,count=0;
@@ -223,27 +235,35 @@ public class ArrayOperation {
 		return iArr;
 	}
 	
-	static int[] removeDuplicates(int[] arr) {
+//	Print Duplicates
+	static int[] printDuplicates(int[] arr) {
 		int[] rArr=new int[arr.length];
-		int j=0,i=1;
-		arr=ascSort(arr);
-		while(i<arr.length-1) {
-			if(arr[i]==arr[i+1]) {
-				rArr[j++]=arr[i];
-				i+=2;
-			}else {
-				rArr[j++]=arr[i++];
+		int count=0;
+		for(int i=0;i<arr.length;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[i]==arr[j]) {
+					rArr[i]=arr[i];
+				}
 			}
 		}
-		return rArr;
+		for(int p=0;p<rArr.length;p++) {
+			if(rArr[p]==0)
+			count++;
+		}
+		int[] iArr=new int[rArr.length-count];
+		for(int q=0;q<iArr.length;q++) {
+			iArr[q]=rArr[q];
+		}
+			return iArr;
 	}
 	
+//	Count PrimeNumber
 	static int countPrimeNum(int[] arr) {
 		int count=0;
 		boolean bool=true;
 		for(int i=0;i<arr.length;i++) {
-			for(int j=2;j<i;j++) {
-				if(j%2==0) {
+			for(int j=2;j<arr[i];j++) {
+				if(arr[i]%j==0) {
 					bool=false;
 					break;
 				}
