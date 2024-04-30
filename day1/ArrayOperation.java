@@ -235,7 +235,7 @@ public class ArrayOperation {
 		return iArr;
 	}
 	
-//	Print Duplicates
+//	Print Duplicates Elements
 	static int[] printDuplicates(int[] arr) {
 		int[] rArr=new int[arr.length];
 		int count=0;
