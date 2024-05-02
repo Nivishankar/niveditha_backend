@@ -163,23 +163,7 @@ public class ArrayOperation {
 //	Union Array
 	static int[] unionArray(int[] arr1,int[] arr2) {
 		int[] arr3=new int[arr1.length+arr2.length];
-//		int k=arr1.length;
-//		boolean bool=false;
-//		for(int i=0;i<arr1.length;i++) {
-//			arr3[i]=arr1[i];	
-//		}
-//		for(int j=0;j<arr2.length;j++) {
-//			for(int p=0;p<arr1.length;p++) {
-//			if(arr2[j]==arr1[p]) {
-//				bool=true;
-//				break;
-//			}
-//			}
-//			if(!bool) {
-//			arr3[k]=arr2[j];
-//			k++;
-//			}
-//		}
+
 		int i= 0,j = 0,k = 0,count=0;
 		
 		while(i < arr1.length && j < arr2.length) {
