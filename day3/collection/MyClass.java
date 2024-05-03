@@ -34,15 +34,16 @@ public class MyClass {
 		
 		//Comparator
 		
-//		Collections.sort(employees, (e1,e2)->e1.getId().compareTo(e2.getId()));
-		Collections.sort(employees, (e1,e2)->e2.getSalary().compareTo(e1.getSalary()));
-//		Collections.sort(employees, (e1,e2)->e1.getName().compareTo(e2.getName()));
+//		Collections.sort(employees, (e1,e2)->e1.getId()-e2.getId());
+		Collections.sort(employees, (e1,e2)->e2.getSalary()-e1.getSalary());
+//		Collections.sort(employees, (e1,e2)->e1.getName()-e2.getName());
 
 		
 //		employees.sort((e1,e2)->e1.getId().compareTo(e2.getId()));
 		
 		for(Employee e:employees) {
 			System.out.println(e);
+		
 		}
 		
 	}
