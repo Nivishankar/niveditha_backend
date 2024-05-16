@@ -43,9 +43,8 @@ public class StudentDaoImple implements StudentDao {
 	public void fetchStudent() {
 		
 		String query = "select * from Student";
-		jdbcTemplate.query(query, new RowMapper());
-//		ResultSet std=jdbcTemplate.query(fetchquery,new ResultSetExtractor<List<Student>>());
-//		System.out.println("id="+std.getId()+","+"name="+std.getName()+","+"age="+std.getAge());;
+		List<Student>students=jdbcTemplate.query(query, new StudentMapper());
+		System.out.println(students);
 	}
 
 }

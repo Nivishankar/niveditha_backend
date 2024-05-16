@@ -1,4 +1,4 @@
-package com.excelsoft.excelhibernate.manytomany;
+package manyTomanymapping;
 
 import java.util.List;
 
@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,23 +15,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="student2")
-public class Student2 {
-
+@Entity
+public class Book2 {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int b_id;
+	private String title;
 	
-	private int id;
-	
-	private String name;
-	
-	private int age;
-	
-	@ManyToMany
-	private List<Book2> books;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Student2> students;
 }

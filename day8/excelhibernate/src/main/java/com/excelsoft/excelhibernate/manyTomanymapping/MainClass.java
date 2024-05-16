@@ -1,6 +1,6 @@
-package com.excelsoft.excelhibernate.manytomany;
+package manyTomanymapping;
 
-import java.awt.print.Book;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +9,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class MainManyToMany {
+public class MainClass {
 
 	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("stddb");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("nisu");
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		
@@ -23,43 +23,50 @@ public class MainManyToMany {
 		Book2 b2 = new Book2();
 		Book2 b3 = new Book2();
 		
-		Student2 std1 = new Student2();
-		Student2 std2 = new Student2();
-		Student2 std3 = new Student2();
+		Student2 st1 = new Student2();
+		Student2 st2 = new Student2();
+		Student2 st3 = new Student2();
 		
-		b1.setBk_title("One day life will change");
+		b1.setTitle("One day life will change");
 		b1.setStudents(students);
 		
-		b2.setBk_title("you are my best friend");
+		b2.setTitle("you are my best friend");
 		b2.setStudents(students);
 		
-		b3.setBk_title("cosmos");
+		b3.setTitle("cosmos");
 		b3.setStudents(students);
 		
 		books.add(b1);
 		books.add(b2);
 		books.add(b3);
 
-		std1.setName("John");
-		std1.setAge(32);
-		std1.setBooks(books);
+		st1.setName("Gavin");
+		st1.setAge(32);
+		st1.setBooks(books)
+;
 		
-		std2.setName("Oliver");
-		std2.setAge(30);
-		std2.setBooks(books);
+		st2.setName("Oliver");
+		st2.setAge(30);
+		st2.setBooks(books)
+;
 		
-		std3.setName("Rohan");
-		std3.setAge(23);
-		std3.setBooks(books);
+		st3.setName("Rohan");
+		st3.setAge(23);
+		st3.setBooks(books)
+;
 		
-		students.add(std1);
-		students.add(std2);
-		students.add(std3);
+		students.add(st1);
+		students.add(st2);
+		students.add(st3);
 		
 		
 		transaction.begin();
-		manager.persist(students);
-		manager.persist(books);
+		manager.persist(st1);
+		manager.persist(st2);
+		manager.persist(st3);
+		manager.persist(b1);
+		manager.persist(b2);
+		manager.persist(b3);
 
 		transaction.commit();
 		
