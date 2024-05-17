@@ -1,10 +1,14 @@
 package com.excel.lms.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +18,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class EmployeeBankDetails {
 
 	@Id
@@ -26,4 +31,8 @@ public class EmployeeBankDetails {
 	private String ifscCode;
 	private String branch;
 	private String state;
+	
+	@JoinColumn(name="primaryinfo_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	private EmployeePrimaryInfo employeePrimaryInfo;
 }
