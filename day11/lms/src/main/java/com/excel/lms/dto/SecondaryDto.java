@@ -13,7 +13,8 @@ import lombok.Setter;
 @Builder
 public class SecondaryDto {
 
-private Integer secondaryinfo_id;
+	private String employeeId;
+    private Integer secondaryinfo_id;
 	
 	private String panNo;
 	private Integer aadharNo;

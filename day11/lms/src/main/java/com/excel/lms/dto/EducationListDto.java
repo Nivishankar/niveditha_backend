@@ -1,4 +1,6 @@
-package com.excel.lms.response;
+package com.excel.lms.dto;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,14 +8,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
 @Builder
-public class CommonResponse<T> {
+public class EducationListDto {
 
-	private String data;
-	private String message;
+	private String employeeId;
+	
+	private List<EducationDto> educations;
 
+	
 }

@@ -13,7 +13,8 @@ import lombok.Setter;
 @Builder
 public class EducationDto {
 
-private Integer education_id;
+
+   private Integer education_id;
 	
 	private String educationType;
 	private Integer yearofPassing;
